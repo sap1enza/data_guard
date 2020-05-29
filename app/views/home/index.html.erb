@@ -1,1 +1,11 @@
-oi
+<%= link_to "Create Groups", employee_groups_path, method: :post %>
+
+<% if @groups_ids.present? %>
+  <% @groups_ids.each do |group_id| %>
+    <% group = Group.find(group_id) %>
+
+    <ul>
+      <%= render group.employees %>
+    </ul>
+  <% end %>
+<% end %>
